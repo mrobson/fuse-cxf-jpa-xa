@@ -1,1 +1,1 @@
-# fuse-jpa-oracle-xa
+# fuse-cxf-jpa-xa
