@@ -1,6 +1,4 @@
-﻿# fuse-cxf-jpa-xa
-
-CXF JPA XA: demonstrates RESTful web services with CXF and JPA Persistence with XA Transactions
+﻿CXF JPA XA: demonstrates RESTful web services with CXF and JPA Persistence with XA Transactions
 ===============================================================================================
 Author: Matt Robson 
 
@@ -114,3 +112,9 @@ Content-Type: application/json
 Headers: {Content-Type=[application/json], Date=[Thu, 30 Apr 2015 21:40:04 GMT]}
 Payload: Could not save person: [FirstName= LastName=R Country=Canada Addresses=[[City=Toronto]]] Cause: javax.transaction.RollbackException: Unable to commit: transaction marked for rollback Error: SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("PRODUCTCONFIG"."PERSON"."FIRSTNAME")
 
+Remove the services
+-------------------
+
+To remove the bundle we installed, you can simply uninstall the feature:
+
+1. features:uninstall distributedtx-jpa-example
