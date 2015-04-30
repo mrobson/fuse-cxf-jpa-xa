@@ -1,9 +1,11 @@
 ﻿# fuse-cxf-jpa-xa
 
 CXF JPA XA: demonstrates RESTful web services with CXF and JPA Persistence with XA Transactions
-===============================================
-Author: Matt Robson
-Technologies: Fuse, OSGi, CXF, OpenJPA, Blueprint, Karaf Features, Fuse BOM, Aries Auto Enlist XA Transactions, Swagger, JSON, ExceptionMapper
+===============================================================================================
+Author: Matt Robson 
+
+Technologies: Fuse, OSGi, CXF, OpenJPA, Blueprint, Karaf Features, Fuse BOM, Aries Auto Enlist XA Transactions, Swagger, JSON, ExceptionMapper 
+
 Product: Fuse 6.1 
 
 Breakdown: 
