@@ -25,31 +25,31 @@ Before building and running this quick start you need:
 Build and Deploy
 -------------------------------
 
-1 clone this project
+1. clone this project
 
 	git clone https://github.com/mrobson/fuse-cxf-jpa-xa.git
 
-2 change to project directory 
+2. change to project directory 
 
 	cd fuse-cxf-jpa-xa
 
-3 update your username and password
+3. update your username and password
 
 	vi xa-datasource/src/main/resources/OSGI-INF/blueprint/datasource.xml
 	<cm:property name="datasource.username" value="username" />
 	<cm:property name="datasource.password" value="password" />
 
-4 build
+4. build
 
 	mvn clean install
 
-5 start JBoss Fuse 6.1
+5. start JBoss Fuse 6.1
 
 	./fuse or ./start
 
-6 start Oracle database
+6. start Oracle database (refer to vendor documentation if you need to do this, for testing I recommend using Oracle XE)
 
-7 deploy Oracle JDBC driver
+7. deploy Oracle JDBC driver
 
 Download the latest driver from Oracle and install it to your local maven repository (account required):
 
@@ -59,15 +59,15 @@ From the Karaf console:
 
 	osgi:install -s wrap:mvn:com.oracle/ojdbc6/12.1.0.1
 
-8 add the features file
+8. add the features file
 
 	features:addurl mvn:org.mrobson.example.distributedtx/features/1.0-SNAPSHOT/xml/features
 
-9 install
+9. install
 
 	features:install distributedtx-jpa-example
 
-10 verify
+10. verify
 
 	osgi:list
 	[ 819] [Active     ] [Created     ] [       ] [  100] distributedtx :: XA-Datasource (1.0.0.SNAPSHOT)
@@ -96,11 +96,15 @@ As a quick test, you can use the GET operations directly from the browser:
 Run a test:
 -----------
 
-1. cd fuse-cxf-jpa-xa/cxfjpa
+1. change to cxfjpa directory
 
-2. mvn -Dtest=PersonTest test
+	cd fuse-cxf-jpa-xa/cxfjpa
 
-This will execute 1 request to add a new person and then a second request to find 1 person.
+2. run included test which persists a person and then looks up that person
+
+mvn -Dtest=PersonTest test
+
+Note: reference json file can be found at: cxfjpa/src/test/resources/person.json
 
 Make it fail:
 -------------
@@ -109,22 +113,24 @@ To test transaction rollback (and see the ExceptionMapper in action) , you can m
 
 From fuse-cxf-jpa-xa/cxfjpa:
 
-vi src/test/resources/person.json
+	vi src/test/resources/person.json
 
 Delete the "firstName" to make it null:
 
-{"id":null,"version":null,"firstName":"","lastName":"R","country":"Canada","addresses":[{"id":null,"version":null,"city":"Toronto"}]}
+	{"id":null,"version":null,"firstName":"","lastName":"R","country":"Canada","addresses":[{"id":null,"version":null,"city":"Toronto"}]}
 
 You will see a HTTP 400 returned along with a detailed description of the issue:
 
-Response-Code: 400
-Content-Type: application/json
-Headers: {Content-Type=[application/json], Date=[Thu, 30 Apr 2015 21:40:04 GMT]}
-Payload: Could not save person: [FirstName= LastName=R Country=Canada Addresses=[[City=Toronto]]] Cause: javax.transaction.RollbackException: Unable to commit: transaction marked for rollback Error: SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("PRODUCTCONFIG"."PERSON"."FIRSTNAME")
+	Response-Code: 400
+	Content-Type: application/json
+	Headers: {Content-Type=[application/json], Date=[Thu, 30 Apr 2015 21:40:04 GMT]}
+	Payload: Could not save person: [FirstName= LastName=R Country=Canada Addresses=[[City=Toronto]]] Cause: javax.transaction.RollbackException: Unable to commit: transaction marked for rollback Error: SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("PRODUCTCONFIG"."PERSON"."FIRSTNAME")
 
 Remove the services
 -------------------
 
 To remove the bundle we installed, you can simply uninstall the feature:
 
-1. features:uninstall distributedtx-jpa-example
+1. uninstall the feature
+
+	features:uninstall distributedtx-jpa-example
