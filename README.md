@@ -25,44 +25,54 @@ Before building and running this quick start you need:
 Build and Deploy
 -------------------------------
 
-1. git clone https://github.com/mrobson/fuse-cxf-jpa-xa.git
+1 clone this project
 
-2. cd fuse-cxf-jpa-xa
+	git clone https://github.com/mrobson/fuse-cxf-jpa-xa.git
 
-3. update your username and password
-vi xa-datasource/src/main/resources/OSGI-INF/blueprint/datasource.xml
-<cm:property name="datasource.username" value="username" />
-<cm:property name="datasource.password" value="password" />
+2 change to project directory 
 
-3. mvn clean install
+	cd fuse-cxf-jpa-xa
 
-4. start JBoss Fuse 6.1
+3 update your username and password
 
-5. start Oracle XE database
+	vi xa-datasource/src/main/resources/OSGI-INF/blueprint/datasource.xml
+	<cm:property name="datasource.username" value="username" />
+	<cm:property name="datasource.password" value="password" />
 
-6. deploy Oracle JDBC driver
+4 build
+
+	mvn clean install
+
+5 start JBoss Fuse 6.1
+
+	./fuse or ./start
+
+6 start Oracle database
+
+7 deploy Oracle JDBC driver
 
 Download the latest driver from Oracle and install it to your local maven repository (account required):
-mvn install:install-file -Dfile=ojdbc6.jar -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=12.1.0.1 -Dpackaging=jar
+
+	mvn install:install-file -Dfile=ojdbc6.jar -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=12.1.0.1 -Dpackaging=jar
 
 From the Karaf console:
-osgi:install -s wrap:mvn:com.oracle/ojdbc6/12.1.0.1
 
-7. add the features file
+	osgi:install -s wrap:mvn:com.oracle/ojdbc6/12.1.0.1
 
-features:addurl mvn:org.mrobson.example.distributedtx/features/1.0-SNAPSHOT/xml/features
+8 add the features file
 
-8. install
+	features:addurl mvn:org.mrobson.example.distributedtx/features/1.0-SNAPSHOT/xml/features
 
-features:install distributedtx-jpa-example
+9 install
 
-9. verify
+	features:install distributedtx-jpa-example
 
-osgi:list
+10 verify
 
-[ 819] [Active     ] [Created     ] [       ] [  100] distributedtx :: XA-Datasource (1.0.0.SNAPSHOT)
-[ 820] [Active     ] [            ] [       ] [  110] distributedtx :: Datamodel (1.0.0.SNAPSHOT)
-[ 821] [Active     ] [Created     ] [       ] [  120] distributedtx :: CXF JPA (1.0.0.SNAPSHOT)
+	osgi:list
+	[ 819] [Active     ] [Created     ] [       ] [  100] distributedtx :: XA-Datasource (1.0.0.SNAPSHOT)
+	[ 820] [Active     ] [            ] [       ] [  110] distributedtx :: Datamodel (1.0.0.SNAPSHOT)
+	[ 821] [Active     ] [Created     ] [       ] [  120] distributedtx :: CXF JPA (1.0.0.SNAPSHOT)
 
 Usage:
 ------
