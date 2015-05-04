@@ -14,7 +14,7 @@ For more information see:
 
 * <https://access.redhat.com/site/documentation/JBoss_Fuse/> for more information about using JBoss Fuse
 
-System requirements
+System Requirements
 -------------------
 Before building and running this quick start you need:
 
@@ -93,7 +93,7 @@ As a quick test, you can use the GET operations directly from the browser:
 
 	http://localhost:8181/cxf/jpatx/person/findById/1
 
-Run a test
+Run a Test
 ----------
 
 1) change to cxfjpa directory
@@ -106,7 +106,7 @@ mvn -Dtest=PersonTest test
 
 Note: reference json file can be found at: cxfjpa/src/test/resources/person.json
 
-Make it fail
+Make it Fail
 ------------
 
 To test transaction rollback (and see the ExceptionMapper in action) , you can make a request fail.
@@ -126,7 +126,7 @@ You will see a HTTP 400 returned along with a detailed description of the issue:
 	Headers: {Content-Type=[application/json], Date=[Thu, 30 Apr 2015 21:40:04 GMT]}
 	Payload: Could not save person: [FirstName= LastName=R Country=Canada Addresses=[[City=Toronto]]] Cause: javax.transaction.RollbackException: Unable to commit: transaction marked for rollback Error: SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("PRODUCTCONFIG"."PERSON"."FIRSTNAME")
 
-Remove the services
+Remove the Services
 -------------------
 
 To remove the bundle we installed, you can simply uninstall the feature:
