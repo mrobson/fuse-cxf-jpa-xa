@@ -25,31 +25,31 @@ Before building and running this quick start you need:
 Build and Deploy
 -------------------------------
 
-1. clone this project
+1) clone this project
 
 	git clone https://github.com/mrobson/fuse-cxf-jpa-xa.git
 
-2. change to project directory 
+2) change to project directory 
 
 	cd fuse-cxf-jpa-xa
 
-3. update your username and password
+3) update your username and password
 
 	vi xa-datasource/src/main/resources/OSGI-INF/blueprint/datasource.xml
 	<cm:property name="datasource.username" value="username" />
 	<cm:property name="datasource.password" value="password" />
 
-4. build
+4) build
 
 	mvn clean install
 
-5. start JBoss Fuse 6.1
+5) start JBoss Fuse 6.1
 
 	./fuse or ./start
 
-6. start Oracle database (refer to vendor documentation if you need to do this, for testing I recommend using Oracle XE)
+6) start Oracle database (refer to vendor documentation if you need to do this, for testing I recommend using Oracle XE)
 
-7. deploy Oracle JDBC driver
+7) deploy Oracle JDBC driver
 
 Download the latest driver from Oracle and install it to your local maven repository (account required):
 
@@ -59,15 +59,15 @@ From the Karaf console:
 
 	osgi:install -s wrap:mvn:com.oracle/ojdbc6/12.1.0.1
 
-8. add the features file
+8) add the features file
 
 	features:addurl mvn:org.mrobson.example.distributedtx/features/1.0-SNAPSHOT/xml/features
 
-9. install
+9) install
 
 	features:install distributedtx-jpa-example
 
-10. verify
+10) verify
 
 	osgi:list
 	[ 819] [Active     ] [Created     ] [       ] [  100] distributedtx :: XA-Datasource (1.0.0.SNAPSHOT)
