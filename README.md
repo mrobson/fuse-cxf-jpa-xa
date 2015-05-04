@@ -96,11 +96,11 @@ As a quick test, you can use the GET operations directly from the browser:
 Run a test:
 -----------
 
-1. change to cxfjpa directory
+1) change to cxfjpa directory
 
 	cd fuse-cxf-jpa-xa/cxfjpa
 
-2. run included test which persists a person and then looks up that person
+2) run included test which persists a person and then looks up that person
 
 mvn -Dtest=PersonTest test
 
@@ -115,7 +115,7 @@ From fuse-cxf-jpa-xa/cxfjpa:
 
 	vi src/test/resources/person.json
 
-Delete the "firstName" to make it null:
+Delete the "firstName" value to make it blank/null:
 
 	{"id":null,"version":null,"firstName":"","lastName":"R","country":"Canada","addresses":[{"id":null,"version":null,"city":"Toronto"}]}
 
@@ -131,6 +131,6 @@ Remove the services
 
 To remove the bundle we installed, you can simply uninstall the feature:
 
-1. uninstall the feature
+1) uninstall the feature
 
 	features:uninstall distributedtx-jpa-example
