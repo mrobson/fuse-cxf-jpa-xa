@@ -6,8 +6,8 @@ Technologies: Fuse, OSGi, CXF, OpenJPA, Blueprint, Karaf Features, Fuse BOM, Ari
 
 Product: Fuse 6.1 
 
-Breakdown: 
------------
+Breakdown
+---------
 This code example shows how to leverage RESTful (JAX-RS) web services using CXF and persist Entities using OpenJPA. It demonstrates how to wire an EntityManager to a JPA Context and on to a Service. It also makes use of Aries Auto Enlistment for XA Transactions.  Other interesting aspects include the use of the Fuse BOM, Karaf Features, Blueprint Placeholders, Swagger and  ExceptionMapper.
 
 For more information see:
@@ -23,7 +23,7 @@ Before building and running this quick start you need:
 * JBoss Fuse 6.1
 
 Build and Deploy
--------------------------------
+----------------
 
 1) clone this project
 
@@ -74,8 +74,8 @@ From the Karaf console:
 	[ 820] [Active     ] [            ] [       ] [  110] distributedtx :: Datamodel (1.0.0.SNAPSHOT)
 	[ 821] [Active     ] [Created     ] [       ] [  120] distributedtx :: CXF JPA (1.0.0.SNAPSHOT)
 
-Usage:
-------
+Usage
+-----
 
 You can verify your CXF web services are available at:
 
@@ -93,8 +93,8 @@ As a quick test, you can use the GET operations directly from the browser:
 
 	http://localhost:8181/cxf/jpatx/person/findById/1
 
-Run a test:
------------
+Run a test
+----------
 
 1) change to cxfjpa directory
 
@@ -106,8 +106,8 @@ mvn -Dtest=PersonTest test
 
 Note: reference json file can be found at: cxfjpa/src/test/resources/person.json
 
-Make it fail:
--------------
+Make it fail
+------------
 
 To test transaction rollback (and see the ExceptionMapper in action) , you can make a request fail.
 
