@@ -37,18 +37,16 @@
 		<property name="password" value="${datasource.password}"/>
 		<property name="connectionCachingEnabled" value="false" />
 	</bean>
-
-    <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource" destroy-method="close">
-        <property name="URL" value="${datasource.url}"/>
-        <property name="user" value="${datasource.username}"/>
-        <property name="password" value="${datasource.password}"/>
-    </bean>
-
+	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource" destroy-method="close">
+		<property name="URL" value="${datasource.url}"/>
+		<property name="user" value="${datasource.username}"/>
+		<property name="password" value="${datasource.password}"/>
+	</bean>
 	<service interface="javax.sql.XADataSource" ref="dataSourceXA">
 		<service-properties>
 			<entry key="osgi.jndi.service.name" value="jdbc/JPA_XADS"/>
 			<entry key="datasource.name" value="JPA_XADS"/>
-			<entry key="name" value="JPA_XADS"></entry>
+			<entry key="name" value="JPA_XADS"/>
 			<entry key="aries.xa.pooling" value="true" />
 			<entry key="aries.xa.poolMinSize" value="5" />
 			<entry key="aries.xa.poolMaxSize" value="5" />
@@ -63,14 +61,13 @@
 			<entry key="aries.xa.aware" value="true" />
 		</service-properties>
 	</service>
-	
-  <service interface="javax.sql.DataSource" ref="dataSource">                                   
-    <service-properties>                                                                        
-            <entry key="osgi.jndi.service.name" value="jdbc/NonXA_DS"/>                         
-                <entry key="datasource.name" value="NonXA_DS"/>                                 
-                <entry key="name" value="NonXA_DS"></entry>                                     
-                <entry key="aries.xa.aware" value="false" />                                    
-                <entry key="aries.xa.name" value="NonXA_DS" />                                  
-    </service-properties>                                                                       
-  </service>   
+	<service interface="javax.sql.DataSource" ref="dataSource">
+		<service-properties>
+			<entry key="osgi.jndi.service.name" value="jdbc/NonXA_DS"/>
+			<entry key="datasource.name" value="NonXA_DS"/>
+			<entry key="name" value="NonXA_DS"/>
+			<entry key="aries.xa.aware" value="false" />
+			<entry key="aries.xa.name" value="NonXA_DS" />
+		</service-properties>
+	</service>
 </blueprint>
