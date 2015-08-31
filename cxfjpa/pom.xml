@@ -126,7 +126,6 @@
 									org.apache.cxf.transport.http,
 									org.apache.activemq,
 									org.apache.camel,
-									org.apache.aries.jpa.container.sync,
 									org.apache.aries.proxy.weaving,
 									javax.persistence.criteria,
 									org.apache.cxf.jaxrs.provider.json,

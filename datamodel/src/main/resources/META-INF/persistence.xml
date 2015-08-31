@@ -38,16 +38,16 @@
 			<property name="openjpa.jdbc.MappingDefaults" value="ForeignKeyDeleteAction=restrict,JoinForeignKeyDeleteAction=restrict"/>
 			<property name="openjpa.Multithreaded" value="false"/>
 			<property name="openjpa.InitializeEagerly" value="true"/>
-			<property name="openjpa.DynamicEnhancementAgent" value="false" />  
+			<property name="openjpa.DynamicEnhancementAgent" value="false" />
 			<property name="openjpa.RuntimeUnenhancedClasses" value="unsupported" />
 			<property name="openjpa.jdbc.SchemaFactory" value="native(foreignKeys=true)" />
 			<!-- Some additional handy options -->
-<!-- 		<property name="openjpa.Log" value="File=openjpa-trace.log, DefaultLevel=TRACE, Runtime=INFO, Tool=INFO, SQL=TRACE"/>
-			<property name="openjpa.ConnectionFactoryProperties" value="PrintParameters=true"/>
+			<!--property name="openjpa.Log" value="File=openjpa-trace.log, DefaultLevel=TRACE, Runtime=INFO, Tool=INFO, SQL=TRACE"/>
+			<property name="openjpa.ConnectionFactoryProperties" value="PrintParameters=true"/-->
 			<property name="openjpa.Connection2UserName" value="productconfig" />
 			<property name="openjpa.Connection2Password" value="productconfig123" />
 			<property name="openjpa.Connection2URL" value="jdbc:oracle:thin:@localhost:1521:XE" />
-			<property name="openjpa.Connection2DriverName" value="oracle.jdbc.driver.OracleDriver" /> -->
+			<property name="openjpa.Connection2DriverName" value="oracle.jdbc.driver.OracleDriver" />
 		</properties>
 	</persistence-unit>
 </persistence>
